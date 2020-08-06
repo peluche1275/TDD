@@ -1,8 +1,8 @@
 class StrConvertor:
-    
-    def convert(string):
 
-        dictio = {
+    def __init__(self):
+
+        self.dictionaryWordsToIntegers =  {
             "Zero": "0",
             "Un": "1",
             "Deux": "2",
@@ -16,19 +16,21 @@ class StrConvertor:
             "Plus": "+",
             "Moins": "-"
         }
+    
+    def convert(self,string):
 
         import re
 
-        convert = re.findall('[A-Z][^A-Z]*',string)
-        liste = []
+        splitStringIntoList = re.findall('[A-Z][^A-Z]*',string)
 
-        for x in convert:
-            liste.append(dictio.get(x))
+        listContainingConvertedWords = []
+
+        for x in splitStringIntoList:
+            listContainingConvertedWords.append(self.dictionaryWordsToIntegers.get(x))
         
-        return eval("".join(liste))
+        return eval("".join(listContainingConvertedWords))
 
 #  TEST #
-
 
 def assertEquals(firstComparing, secondComparing):
     if firstComparing == secondComparing:
@@ -38,7 +40,7 @@ def assertEquals(firstComparing, secondComparing):
 
 
 def testStringConvertorToInt():
-    StringConvertor = StrConvertor
+    StringConvertor = StrConvertor()
     print(assertEquals(StringConvertor.convert('Deux'), 2))
     print(assertEquals(StringConvertor.convert('Trois'), 3))
     print(assertEquals(StringConvertor.convert('DeuxPlusDeux'), 4))

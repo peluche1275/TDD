@@ -2,7 +2,7 @@ class StrConvertor:
 
     def __init__(self):
 
-        self.dictionaryWordsToIntegers =  {
+        self.dictionaryWordsToIntegers = {
             "Zero": "0",
             "Un": "1",
             "Deux": "2",
@@ -16,21 +16,37 @@ class StrConvertor:
             "Plus": "+",
             "Moins": "-"
         }
-    
-    def convert(self,string):
+
+    def convert(self, string):
 
         import re
 
-        splitStringIntoList = re.findall('[A-Z][^A-Z]*',string)
+        splitStringIntoList = re.findall('[A-Z][^A-Z]*', string)
 
         listContainingConvertedWords = []
 
         for x in splitStringIntoList:
-            listContainingConvertedWords.append(self.dictionaryWordsToIntegers.get(x))
+            listContainingConvertedWords.append(self.searchword(x))
+            
+        print(listContainingConvertedWords)
+        conversion = "".join(listContainingConvertedWords)
         
-        return eval("".join(listContainingConvertedWords))
 
+        if conversion == "Erreur":
+            return "Erreur"
+        else:
+            return eval("".join(listContainingConvertedWords))
+
+    def searchword(self,x):
+        try:
+            self.dictionaryWordsToIntegers.get(x)
+        except:
+            return "Erreur"
+        else:
+            return self.dictionaryWordsToIntegers.get(x)
+    
 #  TEST #
+
 
 def assertEquals(firstComparing, secondComparing):
     if firstComparing == secondComparing:
@@ -46,6 +62,9 @@ def testStringConvertorToInt():
     print(assertEquals(StringConvertor.convert('DeuxPlusDeux'), 4))
     print(assertEquals(StringConvertor.convert('TroisMoinsDeux'), 1))
     print(assertEquals(StringConvertor.convert('TroisMoinsDeuxPlusCinqMoinsSix'), 0))
+    # print(assertEquals(StringConvertor.convert('DeuxPlus'),"Erreur"))
+    # print(assertEquals(StringConvertor.convert('Plus'),"Erreur"))
+    print(assertEquals(StringConvertor.convert('Erreur'), "Erreur"))
 
 
 testStringConvertorToInt()

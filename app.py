@@ -27,24 +27,25 @@ class StrConvertor:
 
         for x in splitStringIntoList:
             listContainingConvertedWords.append(self.searchword(x))
-            
+
         print(listContainingConvertedWords)
         conversion = "".join(listContainingConvertedWords)
-        
 
         if conversion == "Erreur":
             return "Erreur"
         else:
-            return eval("".join(listContainingConvertedWords))
+            try:
+                return eval("".join(listContainingConvertedWords))
+            except:
+                return "Erreur"
 
-    def searchword(self,x):
-        try:
-            self.dictionaryWordsToIntegers.get(x)
-        except:
+    def searchword(self, x):
+
+        if(self.dictionaryWordsToIntegers.get(x) == None):
             return "Erreur"
         else:
             return self.dictionaryWordsToIntegers.get(x)
-    
+
 #  TEST #
 
 
@@ -62,8 +63,8 @@ def testStringConvertorToInt():
     print(assertEquals(StringConvertor.convert('DeuxPlusDeux'), 4))
     print(assertEquals(StringConvertor.convert('TroisMoinsDeux'), 1))
     print(assertEquals(StringConvertor.convert('TroisMoinsDeuxPlusCinqMoinsSix'), 0))
-    # print(assertEquals(StringConvertor.convert('DeuxPlus'),"Erreur"))
-    # print(assertEquals(StringConvertor.convert('Plus'),"Erreur"))
+    print(assertEquals(StringConvertor.convert('DeuxPlus'), "Erreur"))
+    print(assertEquals(StringConvertor.convert('Plus'), "Erreur"))
     print(assertEquals(StringConvertor.convert('Erreur'), "Erreur"))
 
 

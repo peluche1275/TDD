@@ -2,6 +2,8 @@ from assertEquals import *
 
 from StrConvertor import *
 
+from romanNumeralsDecoder import *
+
 def testStringConvertorToInt():
     StringConvertor = StrConvertor()
     print(assertEquals(StringConvertor.convert('Deux'), 2))
@@ -14,4 +16,14 @@ def testStringConvertorToInt():
     print(assertEquals(StringConvertor.convert('Erreur'), "Erreur"))
 
 
-testStringConvertorToInt()
+def testRomanNumeralsDecoder():
+    rND = romanNumeralsDecoder()
+    print(assertEquals(rND.decode("I"),1))
+    print(assertEquals(rND.decode("V"),5))
+    print(assertEquals(rND.decode("XX"),20))
+    print(assertEquals(rND.decode("XXI"),21))
+    print(assertEquals(rND.decode("IV"),4))
+    print(assertEquals(rND.decode("IX"),9))
+    
+
+testRomanNumeralsDecoder()

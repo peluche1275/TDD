@@ -1,7 +1,9 @@
-class StrConvertor:
+from classMother import *
+
+class StrConvertor(classMother):
 
     def __init__(self):
-
+        
         self.dictionaryWordsToIntegers = {
             "Zero": "0",
             "Un": "1",
@@ -26,7 +28,7 @@ class StrConvertor:
         listContainingConvertedWords = []
 
         for x in splitStringIntoList:
-            listContainingConvertedWords.append(self.searchword(x))
+            listContainingConvertedWords.append(classMother.searchInDictionary(self,self.dictionaryWordsToIntegers, x))
             
         conversion = "".join(listContainingConvertedWords)
 
@@ -37,10 +39,3 @@ class StrConvertor:
                 return eval("".join(listContainingConvertedWords))
             except:
                 return "Erreur"
-
-    def searchword(self, x):
-
-        if(self.dictionaryWordsToIntegers.get(x) == None):
-            return "Erreur"
-        else:
-            return self.dictionaryWordsToIntegers.get(x)

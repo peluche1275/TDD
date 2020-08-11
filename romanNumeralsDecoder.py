@@ -1,4 +1,5 @@
-class romanNumeralsDecoder:
+from classMother import *
+class romanNumeralsDecoder(classMother):
 
     def __init__(self):
         self.dictionaryRomanNumerals = {
@@ -15,13 +16,7 @@ class romanNumeralsDecoder:
     def split(self, romanNumerals):
 
         return [char for char in romanNumerals]
-
-    def searchword(self, x):
-
-        if(self.dictionaryRomanNumerals.get(x) == None):
-            return "Erreur"
-        else:
-            return self.dictionaryRomanNumerals.get(x)
+        
 
     def decode(self, romanNumerals):
 
@@ -40,7 +35,7 @@ class romanNumeralsDecoder:
                 except:
                     pass
 
-            listContainingConvertedWords.append(self.searchword(x))
+            listContainingConvertedWords.append(classMother.searchInDictionary(self,self.dictionaryRomanNumerals,x))
 
         try:
             return eval("+".join(listContainingConvertedWords))

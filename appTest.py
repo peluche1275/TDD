@@ -26,4 +26,5 @@ def testRomanNumeralsDecoder():
     print(assertEquals(rND.decode("IX"),9))
     print(assertEquals(rND.decode("Test"),"Erreur"))
 
+testStringConvertorToInt()
 testRomanNumeralsDecoder()

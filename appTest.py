@@ -24,6 +24,6 @@ def testRomanNumeralsDecoder():
     print(assertEquals(rND.decode("XXI"),21))
     print(assertEquals(rND.decode("IV"),4))
     print(assertEquals(rND.decode("IX"),9))
-    
+    print(assertEquals(rND.decode("Test"),"Erreur"))
 
 testRomanNumeralsDecoder()

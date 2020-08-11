@@ -31,12 +31,19 @@ class romanNumeralsDecoder:
         
         for x in splitRomanNumeralsIntoList:
 
-            if x == "I" : #and next(x) == "V"
-                x = "Menos"
+            i = splitRomanNumeralsIntoList.index(x)
+
+            if x == "I":
+                try:
+                   if splitRomanNumeralsIntoList[i+1] == "V" or splitRomanNumeralsIntoList[i+1] == "X":
+                       x = "Menos"
+                except:
+                    pass
 
             listContainingConvertedWords.append(self.searchword(x))
-            
-        print(splitRomanNumeralsIntoList)
-        print(listContainingConvertedWords)
 
-        return eval("+".join(listContainingConvertedWords))
+        try:
+            return eval("+".join(listContainingConvertedWords))
+        except:
+            return("Erreur")
+        

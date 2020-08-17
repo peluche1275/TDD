@@ -4,6 +4,8 @@ from StrConvertor import *
 
 from romanNumeralsDecoder import *
 
+from descendingOrder import *
+
 def testStringConvertorToInt():
     StringConvertor = StrConvertor()
     print(assertEquals(StringConvertor.convert('Deux'), 2))
@@ -26,5 +28,11 @@ def testRomanNumeralsDecoder():
     print(assertEquals(rND.decode("IX"),9))
     print(assertEquals(rND.decode("Test"),"Erreur"))
 
-testStringConvertorToInt()
-testRomanNumeralsDecoder()
+def testDescendingOrder():
+    dO = descendingOrder()
+    
+    print(assertEquals(dO.descending("42145"),54421))
+
+    # print(assertEquals(dO.descending("123"),321))
+
+testDescendingOrder()

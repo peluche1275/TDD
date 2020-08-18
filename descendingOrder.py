@@ -3,4 +3,12 @@ class descendingOrder:
         pass
 
     def descending(self,test):
-        return "test"
+        print(self.split(test))
+        return self.split(test)
+
+    def split(self, test):
+
+        return [char for char in test]
+
+    def convertStringToInteger():
+        pass

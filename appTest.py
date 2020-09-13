@@ -31,5 +31,9 @@ def testRomanNumeralsDecoder():
 def testDescendingOrder():
     dO = descendingOrder()
     print(assertEquals(dO.descending("42145"),54421))
+    print(assertEquals(dO.descending("44444"),44444))
+    print(assertEquals(dO.descending("123456"),654321))
+    print(assertEquals(dO.descending("654321"),654321))
+    print(assertEquals(dO.descending("1"),1))
 
 testDescendingOrder()

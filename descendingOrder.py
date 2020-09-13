@@ -3,8 +3,12 @@ class descendingOrder:
         pass
 
     def descending(self,test):
-        print(self.convertStringToInteger(self.split(test)))
-        return self.convertStringToInteger(self.split(test))
+        testtdd = self.convertStringToInteger(self.split(test))
+        testtdd.sort(reverse=True)
+        strings = [str(integer) for integer in testtdd]
+        a_string = "".join(strings)
+        an_integer = int(a_string)
+        return an_integer
 
     def split(self, test):
         return [char for char in test]

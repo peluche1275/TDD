@@ -6,18 +6,24 @@ class descendingOrder:
 
         stringConvertedToIntegerList = self.convertStringListToIntegerList(self.splitStringToList(stringToConvertToInteger))
 
-        self.putInReverseOrder(stringConvertedToIntegerList)
+        if stringConvertedToIntegerList != "Erreur":
 
-        integerListConvertedToStringList = [str(integer) for integer in stringConvertedToIntegerList]
+            self.putInReverseOrder(stringConvertedToIntegerList)
 
-        stringListConvertedToString = "".join(integerListConvertedToStringList)
+            integerListConvertedToStringList = [str(integer) for integer in stringConvertedToIntegerList]
 
-        stringConvertedToInteger = int(stringListConvertedToString)
+            stringListConvertedToString = "".join(integerListConvertedToStringList)
 
-        return stringConvertedToInteger
+            stringConvertedToInteger = int(stringListConvertedToString)
+
+            return stringConvertedToInteger
+
+        else:
+
+            return "Erreur"
 
     def putInReverseOrder(self,integerList):
-        
+
         return integerList.sort(reverse=True)
 
     def splitStringToList(self, stringToSplitIntoList):
@@ -26,4 +32,11 @@ class descendingOrder:
 
     def convertStringListToIntegerList(self,stringConvertedToList):
 
-        return list(map(int, stringConvertedToList))
+        try:
+
+            return list(map(int, stringConvertedToList))
+
+        except:
+            
+            return("Erreur")
+        

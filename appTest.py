@@ -35,5 +35,7 @@ def testDescendingOrder():
     print(assertEquals(dO.descending("123456"),654321))
     print(assertEquals(dO.descending("654321"),654321))
     print(assertEquals(dO.descending("1"),1))
+    print(assertEquals(dO.descending("Test"),"Erreur"))
+    print(assertEquals(dO.descending("123Test"),"Erreur"))
 
 testDescendingOrder()

@@ -42,7 +42,7 @@ def testDescendingOrder():
 
 def testSplitStringInPair():
     sSiP = splitStringInPair()
-    print(assertEquals(sSiP.split("abcdef"),["abcdef"]))
+    print(assertEquals(sSiP.split("abcdef"),['a', 'b', 'c', 'd', 'e', 'f']))
     print(assertEquals(sSiP.split("abcdef"),['ab', 'cd', 'ef']))
     print(assertEquals(sSiP.split("abc"),['ab', 'c_']))
 

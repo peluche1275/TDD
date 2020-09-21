@@ -2,6 +2,8 @@ class splitStringInPair:
     def __init__(self):
         pass
 
-    def split(self,test):
-        print(test.split(" "))
-        return test.split(" ")
+    def split(self,stringToConvert):
+        stringSplited = list(stringToConvert)
+        print(stringSplited)
+        return stringSplited
+

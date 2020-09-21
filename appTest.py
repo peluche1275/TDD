@@ -6,6 +6,8 @@ from romanNumeralsDecoder import *
 
 from descendingOrder import *
 
+from splitStringInPair import *
+
 def testStringConvertorToInt():
     StringConvertor = StrConvertor()
     print(assertEquals(StringConvertor.convert('Deux'), 2))
@@ -38,4 +40,9 @@ def testDescendingOrder():
     print(assertEquals(dO.descending("Test"),"Erreur"))
     print(assertEquals(dO.descending("123Test"),"Erreur"))
 
-testDescendingOrder()
+def testSplitStringInPair():
+    sSiP = splitStringInPair()
+    print(assertEquals(sSiP.split("abcdef"),['ab', 'cd', 'ef']))
+    print(assertEquals(sSiP.split("abc"),['ab', 'c_']))
+
+testSplitStringInPair()
